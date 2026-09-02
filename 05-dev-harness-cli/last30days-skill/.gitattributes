@@ -1,0 +1,43 @@
+# Exclude non-runtime files from `git archive` output.
+# Used by skills/last30days/scripts/build-skill.sh to produce a
+# claude.ai-upload-ready .skill file from the canonical skills/last30days tree.
+# See docs/plans/2026-04-14-001-fix-skill-upload-200-file-limit-plan.md.
+
+# Anthropic canonical skill-packaging excludes
+# (mirrors anthropics/skills/skills/skill-creator/scripts/package_skill.py)
+__pycache__/   export-ignore
+node_modules/  export-ignore
+*.pyc          export-ignore
+.DS_Store      export-ignore
+evals/         export-ignore
+
+# Dev, docs, test, and media - not needed at skill runtime
+tests/         export-ignore
+docs/          export-ignore
+fixtures/      export-ignore
+assets/        export-ignore
+
+# NOTE: skills/ and .claude-plugin/ are NOT export-ignored here because
+# Claude Code's /plugin install fetches this same git archive tarball.
+# Removing those from the archive (as v3.0.1 did) silently breaks installs.
+# claude.ai-bundle-specific exclusions live in scripts/build-skill.sh.
+
+# Historical + repo-only manifests
+SPEC.md            export-ignore
+TASKS.md           export-ignore
+CONTRIBUTORS.md    export-ignore
+HERMES_SETUP.md    export-ignore
+CHANGELOG.md       export-ignore
+uv.lock            export-ignore
+
+# Platform adapters are kept in git archives because Claude Code and Codex
+# plugin installs use the same repository archive as their source payload.
+.hermes-plugin/  export-ignore
+
+# CI workflows - repo-only, not needed at skill runtime
+.github/         export-ignore
+
+# Build config itself
+.clawhubignore  export-ignore
+.gitignore      export-ignore
+.gitattributes  export-ignore

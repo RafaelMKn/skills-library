@@ -1,0 +1,67 @@
+{
+  "name": "last30days-skill",
+  "version": "3.8.3",
+  "description": "Research a topic from the last 30 days across Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, and the web.",
+  "settings": [
+    {
+      "name": "Extension Directory",
+      "description": "Extension installation directory (auto-set by Gemini CLI)",
+      "envVar": "GEMINI_EXTENSION_DIR",
+      "sensitive": false
+    },
+    {
+      "name": "ScrapeCreators API Key",
+      "description": "ScrapeCreators API Key for Reddit, TikTok, and Instagram search (required)",
+      "envVar": "SCRAPECREATORS_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "OpenAI API Key",
+      "description": "OpenAI API Key - optional fallback for Reddit discovery",
+      "envVar": "OPENAI_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "xAI API Key",
+      "description": "xAI API Key for X/Twitter search (optional)",
+      "envVar": "XAI_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "OpenRouter API Key",
+      "description": "OpenRouter API Key (optional)",
+      "envVar": "OPENROUTER_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "Parallel AI API Key",
+      "description": "Parallel AI API Key (optional)",
+      "envVar": "PARALLEL_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "Brave Search API Key",
+      "description": "Brave Search API Key (optional)",
+      "envVar": "BRAVE_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "Apify API Token",
+      "description": "Apify API Token (optional legacy)",
+      "envVar": "APIFY_API_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "Twitter AUTH_TOKEN",
+      "description": "Twitter browser AUTH_TOKEN cookie for direct X search (optional)",
+      "envVar": "AUTH_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "Twitter CT0",
+      "description": "Twitter browser CT0 cookie (optional, pair with AUTH_TOKEN)",
+      "envVar": "CT0",
+      "sensitive": true
+    }
+  ]
+}

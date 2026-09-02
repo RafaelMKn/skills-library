@@ -1,0 +1,5 @@
+interface:
+  display_name: "Motion Flux"
+  short_description: "Pipeline editorial de vídeos em motion com gates de aprovação"
+  brand_color: "#D97757"
+  default_prompt: "Use $motion-flux para iniciar um novo conteúdo editorial em motion."

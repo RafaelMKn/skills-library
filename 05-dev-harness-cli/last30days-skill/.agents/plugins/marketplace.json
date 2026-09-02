@@ -1,0 +1,20 @@
+{
+  "name": "last30days-skill",
+  "interface": {
+    "displayName": "last30days"
+  },
+  "plugins": [
+    {
+      "name": "last30days",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/mvanhorn/last30days-skill.git"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Research"
+    }
+  ]
+}
