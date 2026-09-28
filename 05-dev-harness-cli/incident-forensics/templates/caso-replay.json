@@ -1,0 +1,34 @@
+{
+  "_comentario": [
+    "Caso de replay para scripts/replay-code-node.js. Copie um arquivo por caso.",
+    "Preencha `upstream` e `trigger` com dados REAIS extraidos de get-execution",
+    "--include-data (data.resultData.runData.<No>[0].data.main[0][0].json), nao",
+    "com payload inventado: o valor do replay vem de ser o dado que a producao",
+    "realmente entregou ao no.",
+    "",
+    "Cubra no minimo tres casos:",
+    "  1. uma execucao que ANTES PASSAVA (esperado: segue) — prova que a correcao",
+    "     nao mudou o caminho feliz; e o caso que mais importa;",
+    "  2. a execucao que falhava (esperado: para);",
+    "  3. bordas do campo de guarda: string vazia, so espacos, formato alternativo.",
+    "",
+    "Remova este bloco _comentario nos arquivos reais."
+  ],
+
+  "nome": "REAL exec <id> — <cliente/cenario> (antes: success|400)",
+  "campoGuarda": "number",
+  "esperado": "segue",
+
+  "upstream": {
+    "_nota": "item que ENTRA no Code node (saida do no anterior, ex.: linha do SELECT)",
+    "empresa": "<nome>",
+    "whatsGroup": "<valor ou null>"
+  },
+
+  "trigger": {
+    "_nota": "body do no de gatilho, como o jsCode o le",
+    "full_name": "<nome>",
+    "phone": "<telefone>",
+    "location": { "id": "<id>" }
+  }
+}

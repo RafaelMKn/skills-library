@@ -1,0 +1,4 @@
+interface:
+  display_name: "ElevenLabs Motion"
+  short_description: "Gera locução e timings para vídeos motion"
+  default_prompt: "Use $elevenlabs-motion para gerar a locução e os timings deste motion."
