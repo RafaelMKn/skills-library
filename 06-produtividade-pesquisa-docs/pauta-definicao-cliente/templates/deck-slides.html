@@ -1,0 +1,62 @@
+<!doctype html>
+<!-- Esqueleto de deck <empresa>: copie, troque os textos e acrescente uma <section class="slide"> por assunto.
+     Use class="slide dark" na capa e em cada virada de tema. Navegação: setas, PageUp/PageDown, espaço,
+     clique na metade direita/esquerda, tecla f = tela cheia. -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&lt;empresa&gt; — TITULO</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--accent:#D97757;--bg:#FAF9F5;--bg2:#F2F0E8;--dark:#141413;--dark2:#1C1B19;
+        --tx:#1A1917;--tx2:#6B6A65;--tx3:#8E8C84;--txd:#F5F4F0;--bd:#E8E6DC}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden;font-family:Inter,system-ui,sans-serif;background:var(--dark)}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
+         padding:7vh 9vw;background:var(--bg);color:var(--tx)}
+  .slide.on{display:flex}
+  .slide.dark{background:var(--dark);color:var(--txd)}
+  .tag{font-family:"JetBrains Mono",monospace;font-size:1.6vh;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:3vh}
+  h1{font-size:8vh;font-weight:800;line-height:1.05;letter-spacing:-.02em;max-width:22ch}
+  h2{font-size:5.4vh;font-weight:700;line-height:1.1;letter-spacing:-.01em;margin-bottom:4vh;max-width:28ch}
+  em{font-style:normal;color:var(--accent)}
+  p,li{font-size:2.8vh;line-height:1.5;color:inherit}
+  .sub{color:var(--tx3);margin-top:3vh}
+  ul{list-style:none;display:grid;gap:2vh}
+  li{padding-left:2.4vh;border-left:3px solid var(--bd)}
+  li b{color:var(--accent)}
+  .foot{position:fixed;bottom:3vh;left:9vw;right:9vw;display:flex;justify-content:space-between;
+        font-family:"JetBrains Mono",monospace;font-size:1.4vh;color:var(--tx3);z-index:5}
+  .bar{position:fixed;left:0;bottom:0;height:3px;background:var(--accent);transition:width .3s;z-index:5}
+</style>
+</head>
+<body>
+<section class="slide dark on">
+  <div class="tag">&lt;empresa&gt; · CONTEXTO</div>
+  <h1>Título com uma <em>palavra</em> de acento</h1>
+  <p class="sub">DATA</p>
+</section>
+<section class="slide">
+  <div class="tag">Pauta</div>
+  <h2>Assuntos de hoje</h2>
+  <ul><li><b>1.</b> Assunto</li></ul>
+</section>
+<section class="slide dark">
+  <div class="tag">Fechamento</div>
+  <h2>Decisões, donos e <em>prazos</em></h2>
+</section>
+<div class="foot"><span>&lt;empresa&gt;</span><span id="n"></span></div>
+<div class="bar" id="bar"></div>
+<script>
+  const s=[...document.querySelectorAll('.slide')];let i=0;
+  const go=k=>{i=Math.max(0,Math.min(s.length-1,k));s.forEach((e,j)=>e.classList.toggle('on',j===i));
+    document.getElementById('n').textContent=(i+1)+' / '+s.length;
+    document.getElementById('bar').style.width=((i+1)/s.length*100)+'%';};
+  addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key))go(i+1);
+    if(['ArrowLeft','PageUp'].includes(e.key))go(i-1);if(e.key==='f')document.documentElement.requestFullscreen();});
+  addEventListener('click',e=>go(e.clientX>innerWidth/2?i+1:i-1));
+  go(0);
+</script>
+</body>
+</html>
