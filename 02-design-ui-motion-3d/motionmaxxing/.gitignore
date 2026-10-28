@@ -1,0 +1,24 @@
+# dependencies and OS noise
+node_modules/
+.DS_Store
+__pycache__/
+*.pyc
+
+# working folders the skill creates when it makes a film
+film/
+review/
+look/
+look-*/
+stills/
+draft*.mp4
+
+# renders stay out of the repo, except the showcase media
+*.mp4
+!docs/media/*.mp4
+
+# secrets, never
+.env
+.env.*
+.keys
+.key
+*.pem
